@@ -1,5 +1,7 @@
 import 'package:sugarcakeapp/constants.dart';
-import 'package:sugarcakeapp/sign_in/screen/sign_in_screen.dart';
+// ignore: unused_import
+import 'package:sugarcakeapp/responsive.dart';
+import 'package:sugarcakeapp/auth/login/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +16,7 @@ class App extends StatelessWidget {
     applyOverlay();
 
     return const MaterialApp(
-      home:  SignIn(),
+      home: LoginScreen(),
     );
   }
 }
