@@ -11,14 +11,13 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-
   int _currentIndex = 0;
 
   List<BottomNavigationBarItem> items = [];
 
   @override
   void initState() {
-    items =  [
+    items = [
       const BottomNavigationBarItem(
         icon: Icon(
           Icons.home,
@@ -31,7 +30,7 @@ class _AppState extends State<App> {
       ),
       const BottomNavigationBarItem(
         icon: Icon(
-          Icons.favorite,
+          Icons.person,
         ),
         label: "",
       ),
@@ -39,17 +38,15 @@ class _AppState extends State<App> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         body: IndexedStack(
           index: _currentIndex,
           children: const [
-             HomeScreen(),
-             CartScreen(),
-             FavoriteScreen(),
+            HomeScreen(),
+            CartScreen(),
+            FavoriteScreen(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -57,7 +54,7 @@ class _AppState extends State<App> {
           items: items,
           type: BottomNavigationBarType.fixed,
           currentIndex: _currentIndex,
-          selectedIconTheme:  IconThemeData(
+          selectedIconTheme: IconThemeData(
             size: 30,
             color: Colors.grey[800],
           ),
@@ -65,7 +62,6 @@ class _AppState extends State<App> {
             size: 20,
             color: Colors.grey,
           ),
-
           onTap: (index) {
             setState(() {
               _currentIndex = index;
