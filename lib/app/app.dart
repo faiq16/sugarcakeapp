@@ -1,5 +1,5 @@
 import 'package:sugarcakeapp/cart/screen/cart_screen.dart';
-import 'package:sugarcakeapp/favorite/screen/favorite_screen.dart';
+import 'package:sugarcakeapp/profile/screen/profile_screen.dart';
 import 'package:sugarcakeapp/home/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -29,9 +29,9 @@ class _AppState extends State<App> {
         icon: Icon(Icons.shopping_cart),
         label: "",
       ),
-      const BottomNavigationBarItem(
+      BottomNavigationBarItem(
         icon: Icon(
-          Icons.favorite,
+          Icons.person,
         ),
         label: "",
       ),
@@ -44,33 +44,34 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-        body: IndexedStack(
-          index: _currentIndex,
-          children: const [
-             HomeScreen(),
-             CartScreen(),
-             FavoriteScreen(),
-          ],
+      body: IndexedStack(
+        index: _currentIndex,
+        children: const [
+          HomeScreen(),
+          CartScreen(),
+          ProfileScreen(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 0,
+        items: items,
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        selectedIconTheme:  IconThemeData(
+          size: 30,
+          color: Colors.grey[800],
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          elevation: 0,
-          items: items,
-          type: BottomNavigationBarType.fixed,
-          currentIndex: _currentIndex,
-          selectedIconTheme:  IconThemeData(
-            size: 30,
-            color: Colors.grey[800],
-          ),
-          unselectedIconTheme: const IconThemeData(
-            size: 20,
-            color: Colors.grey,
-          ),
+        unselectedIconTheme: const IconThemeData(
+          size: 20,
+          color: Colors.grey,
+        ),
 
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-        ));
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+      ),
+    );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'profile_pic.dart';
-
-import 'profile_menu.dart';
+import 'package:sugarcakeapp/profile/components/profile_menu.dart';
+import 'package:sugarcakeapp/profile/components/profile_pic.dart';
 
 class Body extends StatelessWidget {
   @override

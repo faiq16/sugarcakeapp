@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sugarcakeapp/cart/components/body.dart';
+import 'package:sugarcakeapp/profile/components/body.dart';
 
 class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
