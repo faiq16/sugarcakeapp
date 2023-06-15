@@ -1,5 +1,5 @@
 import 'package:sugarcakeapp/cart/screen/cart_screen.dart';
-import 'package:sugarcakeapp/favorite/screen/favorite_screen.dart';
+import 'package:sugarcakeapp/profile/screen/profile_screen.dart';
 import 'package:sugarcakeapp/home/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -46,7 +46,7 @@ class _AppState extends State<App> {
           children: const [
             HomeScreen(),
             CartScreen(),
-            FavoriteScreen(),
+            ProfileScreen(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(

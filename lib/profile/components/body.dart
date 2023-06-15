@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'profile_pic.dart';
-
 import 'profile_menu.dart';
 
 class Body extends StatelessWidget {
