@@ -17,11 +17,11 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
   late List<List<Cake>> cart = [];
   int totalPay = 0;
   final cake = Cake(
-    name: 'Bacon with Jalapeno and cheese',
-    description: 'Burger 1 description',
-    image:
-        'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_600,h_420/https://killerburger.com/wp-content/uploads/2023/01/berserkerlto-web-e1674082225690.png',
-    price: 10.0,
+    name: 'Cookies And Cream Cupcakes',
+    description:
+        'Oreo Cookies And Cream Cupcakes are ultra-moist with creamy Oreo buttercream and drizzled with glossy chocolate sauce',
+    image: ,
+    price: 3,
     ingredients: [
       ingredients[0],
       ingredients[11],
@@ -33,11 +33,12 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
     time: 15,
   );
   final cake2 = Cake(
-    name: 'Extra pickles and cheese',
-    description: 'Burger 2 description',
+    name: 'Coconut Lime Cupcakes',
+    description:
+        'Lime vanilla cupcakes with coconut frosting, sprinkled with lime zest and coconut, finished with a lime wedge.',
     image:
         'https://www.burgerking.com.mx/wp-media-folder-bk-mex//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/3/Guacamole-Crunch-King-2.png',
-    price: 12.0,
+    price: 3,
     ingredients: [
       ingredients[6],
       ingredients[7],
@@ -200,7 +201,7 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) =>  CheckoutScreen(
+              builder: (context) => CheckoutScreen(
                 cart: cart,
               ),
             ),
@@ -237,7 +238,6 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
               ],
             ),
           ),
-
         ],
       ),
     );
