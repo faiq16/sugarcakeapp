@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import '../../models/cake.dart';
 import 'description.dart';
-import 'ingredients.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -21,7 +20,6 @@ class Body extends StatelessWidget {
             children:  [
               ImageAndRating(cake: cake,),
                TitleAndAmountController(title: "${cake.name}" ),
-               Ingredients(ingredients: cake.ingredients),
                 Description(description: "${cake.description}" ),
             ],
           ),
