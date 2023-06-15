@@ -11,14 +11,14 @@ class Cake {
   final List<Ingredient>? ingredients;
   final List<Category>? categories;
 
-  Cake( {this.name, this.description, this.image, this.price, this.ingredients, this.categories, this.rating, this.time,});
+  Cake({this.name, this.description, this.image, this.price, this.ingredients, this.categories, this.rating, this.time,});
 }
 
 List cakes = [
   Cake(
     name: 'Bacon with Jalapeno and cheese',
-    description: 'Burger 1 description',
-    image: 'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_600,h_420/https://killerburger.com/wp-content/uploads/2023/01/berserkerlto-web-e1674082225690.png',
+    description: 'Cake 1 description',
+    image: '',
     price: 10.0,
     ingredients: [ingredients[0], ingredients[11], ingredients[1], ingredients[7]],
     categories: [categories[0], categories[1]],
@@ -27,8 +27,8 @@ List cakes = [
   ),
   Cake(
     name: 'Extra pickles and cheese',
-    description: 'Cake description',
-    image: 'https://www.burgerking.com.mx/wp-media-folder-bk-mex//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/3/Guacamole-Crunch-King-2.png',
+    description: 'Cake 2 description',
+    image: '',
     price: 12.0,
     ingredients: [ingredients[6], ingredients[7], ingredients[1], ingredients[5]],
     categories: [categories[0], categories[1]],
@@ -37,8 +37,8 @@ List cakes = [
   ),
   Cake(
     name: 'Classic with cheese',
-    description: 'Burger 3 description',
-    image: 'https://www.burgerking.com.mx/wp-media-folder-bk-mex//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/3/Whopper-con-Queso-1.png',
+    description: 'Cake 3 description',
+    image: '',
     price: 15.0,
     ingredients: [ingredients[7], ingredients[1], ingredients[3], ingredients[4], ingredients[5]],
     categories: [categories[0], categories[1]],
@@ -47,8 +47,8 @@ List cakes = [
   ),
   Cake(
     name: 'Three meat floor',
-    description: 'Burger 4 description',
-    image: 'https://s3-eu-central-1.amazonaws.com/www.burgerking.com.ar.v2/wp-media-folder-burger-king-argentina//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/5/Stacker-Triple.png',
+    description: 'Cake 4 description',
+    image: '',
     price: 20.0,
     ingredients: [ingredients[7], ingredients[0], ingredients[1]],
     categories: [categories[0], categories[1]],

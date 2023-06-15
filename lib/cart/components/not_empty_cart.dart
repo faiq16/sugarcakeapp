@@ -6,6 +6,7 @@ import '../../models/cake.dart';
 import '../../models/category.dart';
 import '../../models/ingredient.dart';
 
+
 class NotEmptyCart extends StatefulWidget {
   const NotEmptyCart({Key? key}) : super(key: key);
 
@@ -13,31 +14,33 @@ class NotEmptyCart extends StatefulWidget {
   State<NotEmptyCart> createState() => _NotEmptyCartState();
 }
 
+
 class _NotEmptyCartState extends State<NotEmptyCart> {
   late List<List<Cake>> cart = [];
   int totalPay = 0;
+
   final cake = Cake(
     name: 'Cookies And Cream Cupcakes',
     description:
-        'Oreo Cookies And Cream Cupcakes are ultra-moist with creamy Oreo buttercream and drizzled with glossy chocolate sauce',
-    image: ,
+      'Oreo Cookies And Cream Cupcakes are ultra-moist with creamy Oreo buttercream and drizzled with glossy chocolate sauce',
+    image: 'assets/images/1.jpg', 
     price: 3,
     ingredients: [
       ingredients[0],
       ingredients[11],
       ingredients[1],
       ingredients[7]
-    ],
+      ],
     categories: [categories[0], categories[1]],
     rating: 4.8,
     time: 15,
-  );
+    );
+
   final cake2 = Cake(
     name: 'Coconut Lime Cupcakes',
     description:
-        'Lime vanilla cupcakes with coconut frosting, sprinkled with lime zest and coconut, finished with a lime wedge.',
-    image:
-        'https://www.burgerking.com.mx/wp-media-folder-bk-mex//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/3/Guacamole-Crunch-King-2.png',
+      'Lime vanilla cupcakes with coconut frosting, sprinkled with lime zest and coconut, finished with a lime wedge.',
+    image: 'assets/images/2.jpg', 
     price: 3,
     ingredients: [
       ingredients[6],
@@ -50,8 +53,10 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
     time: 25,
   );
 
+
   @override
   initState() {
+    super.initState();
     cart.add([cake, cake, cake]);
     cart.add([cake2]);
     totalPay = cart.fold(0, (previousValue, element) {
@@ -60,7 +65,7 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
     super.initState();
   }
 
-  Widget burgerListTile(List<List<Cake>> cart, int index, Size size) {
+  Widget cakeListTile(List<List<Cake>> cart, int index, Size size) {
     return Container(
       margin: const EdgeInsets.only(
           top: kDefaultPadding / 2, bottom: kDefaultPadding / 2),
@@ -97,7 +102,6 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
         leading: SizedBox(
           width: size.width * 0.20,
           height: size.height * 0.1,
-          child: Image.network(cart[index][0].image!),
         ),
         trailing: IconButton(
           onPressed: () {
@@ -226,7 +230,7 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
                   child: ListView.builder(
                     itemCount: cart.length,
                     itemBuilder: (context, index) {
-                      return burgerListTile(cart, index, size);
+                      return cakeListTile(cart, index, size);
                     },
                   ),
                 ),
