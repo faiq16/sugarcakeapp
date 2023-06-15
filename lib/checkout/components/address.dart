@@ -62,21 +62,21 @@ class Address extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
-                    ),
-                    image: DecorationImage(
-                        image: NetworkImage(
-                          "https://www.eluniverso.com/resizer/MEJ92qIrU_fm9duEMGlrfOv2SbY=/1005x670/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/DF3BZSOCRVEBPGSBU7J2XCIDYM.jpg",
-                        ),
-                        fit: BoxFit.fitHeight),
+                      ),
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/maps.png'), // Ubah path relatif sesuai dengan nama file gambar yang diinginkan
+                    fit: BoxFit.fitHeight,
                   ),
-                ),
+                  ),
+),
+
                 SizedBox(
                   width: size.width * 0.55,
                   height: size.height * 0.1,
-                  child: Column(
+                  child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
+                    children: [
                       Text(
                         "My Home",
                         style: TextStyle(
@@ -88,7 +88,7 @@ class Address extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(
-                        "1600 Amphitheatre Parkway Mountain View, CA 94043",
+                        "Jl. Pulau Bungin Gg. IX Kubu Abasan No.3",
                         style: TextStyle(
                           color: Colors.grey,
                           fontSize: 12,

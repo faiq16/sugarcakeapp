@@ -34,18 +34,17 @@ class Payment extends StatelessWidget {
                 return Container(
                   margin: const EdgeInsets.only(right: kDefaultPadding),
                   width: 100,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(10),
                     ),
                     image: DecorationImage(
-                        image: NetworkImage(
-                          "https://tentulogo.com/wp-content/uploads/logo-mastercard-cabecera.jpg",
-                        ),
-                        fit: BoxFit.fitWidth),
+                        image: AssetImage('assets/images/payment${index + 1}.jpeg'), // Ubah path relatif sesuai dengan nama file gambar yang diinginkan
+                        fit: BoxFit.fitWidth,),
                   ),
                 );
+                
               },
             ),
           )

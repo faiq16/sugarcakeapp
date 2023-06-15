@@ -51,17 +51,17 @@ class MakePayment extends StatelessWidget {
             SizedBox(
               width: size.width * 0.85,
               height: size.height * 0.075,
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const   [
-                  Text("Total: \$ 20.00",
+                children: [
+                  Text("Total: Rp 200.000",
                       style:  TextStyle(
                         color: Colors.black,
                         fontSize: 18,
                         fontWeight: FontWeight.normal,
                       )),
-                  Text("Discount: \$ 0.00",
+                  Text("Discount: -",
                       style:  TextStyle(
                         color: Colors.black,
                         fontSize: 18,

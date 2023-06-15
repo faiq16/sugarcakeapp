@@ -23,7 +23,7 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
     name: 'Cookies And Cream Cupcakes',
     description:
       'Oreo Cookies And Cream Cupcakes are ultra-moist with creamy Oreo buttercream and drizzled with glossy chocolate sauce',
-    image: 'assets/images/1.jpg', 
+    image: 'assets/images/3.jpg', 
     price: 3,
     ingredients: [
       ingredients[0],
@@ -40,7 +40,7 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
     name: 'Coconut Lime Cupcakes',
     description:
       'Lime vanilla cupcakes with coconut frosting, sprinkled with lime zest and coconut, finished with a lime wedge.',
-    image: 'assets/images/2.jpg', 
+    image: 'assets/images/3.jpg', 
     price: 3,
     ingredients: [
       ingredients[6],
@@ -102,6 +102,7 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
         leading: SizedBox(
           width: size.width * 0.20,
           height: size.height * 0.1,
+          child: Image.asset(cart[index][0].image!),
         ),
         trailing: IconButton(
           onPressed: () {

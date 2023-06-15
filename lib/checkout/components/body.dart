@@ -12,9 +12,9 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return  const Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
+        children: [
           Address(),
           Payment(),
           SizedBox(height: kDefaultPadding * 4),
