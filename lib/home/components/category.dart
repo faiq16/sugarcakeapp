@@ -23,7 +23,6 @@ class Category extends StatelessWidget {
         child:  Row (
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Image.network(category.image ?? ""),
             const SizedBox(width: kDefaultPadding / 2),
             Text(
               "${category.name}",

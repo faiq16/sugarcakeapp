@@ -35,10 +35,6 @@ class HomeScreen extends StatelessWidget {
               Radius.circular(25),
             ),
           ),
-          child: const Image(
-            image: NetworkImage(
-                "https://alohe.github.io/memojis/assets/imgs/2821.png"),
-          ),
         );
     Widget settingsButton() => Container(
       margin: const EdgeInsets.only(
