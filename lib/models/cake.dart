@@ -27,7 +27,7 @@ List cakes = [
   ),
   Cake(
     name: 'Extra pickles and cheese',
-    description: 'Burger 2 description',
+    description: 'Cake description',
     image: 'https://www.burgerking.com.mx/wp-media-folder-bk-mex//home/ubuntu/preview/menu-app/frontend/apps/marketing-website-wordpress-app/web/app/uploads/sites/3/Guacamole-Crunch-King-2.png',
     price: 12.0,
     ingredients: [ingredients[6], ingredients[7], ingredients[1], ingredients[5]],
