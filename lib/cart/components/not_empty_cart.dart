@@ -20,11 +20,11 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
   int totalPay = 0;
 
   final cake = Cake(
-    name: 'Cookies And Cream Cupcakes',
+    name: 'Berries and Cream Puff Pastries with Cream Cheese Drizzle',
     description:
       'Oreo Cookies And Cream Cupcakes are ultra-moist with creamy Oreo buttercream and drizzled with glossy chocolate sauce',
-    image: 'assets/images/3.jpg', 
-    price: 3,
+    image: 'assets/images/10.jpg', 
+    price: 4,
     ingredients: [
       ingredients[0],
       ingredients[11],
@@ -37,11 +37,11 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
     );
 
   final cake2 = Cake(
-    name: 'Coconut Lime Cupcakes',
+    name: 'Red Velvet Cake Cheesecake',
     description:
       'Lime vanilla cupcakes with coconut frosting, sprinkled with lime zest and coconut, finished with a lime wedge.',
-    image: 'assets/images/3.jpg', 
-    price: 3,
+    image: 'assets/images/12.jpg', 
+    price: 4,
     ingredients: [
       ingredients[6],
       ingredients[7],
