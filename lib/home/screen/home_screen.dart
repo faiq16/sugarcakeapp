@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
 import '../components/body.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -52,63 +51,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-
-  AppBar buildAppBar() {
-    Widget profileImage() => Container(
-          margin: const EdgeInsets.only(
-            right: kDefaultPadding,
-            top: kDefaultPadding / 2,
-            bottom: kDefaultPadding / 2,
-          ),
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.2),
-                spreadRadius: 1,
-                blurRadius: 5,
-                offset: const Offset(0, 3), // changes position of shadow
-              ),
-            ],
-            color: Colors.white,
-            borderRadius: const BorderRadius.all(
-              Radius.circular(25),
-            ),
-          ),
-        );
-    Widget settingsButton() => Container(
-      margin: const EdgeInsets.only(
-        left: kDefaultPadding,
-        top: kDefaultPadding / 2,
-        bottom: kDefaultPadding / 2,
-      ),
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            spreadRadius: 1,
-            blurRadius: 5,
-            offset: const Offset(0, 3), // changes position of shadow
-          ),
-        ],
-        color: Colors.white,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(25),
-        ),
-      ),
-      child: IconButton(
-        icon: const Icon(Icons.settings,
-            color: Colors.black, size: 20),
-        onPressed: () {},
-      ),
-    );
-
-    return AppBar(
-      elevation: 0,
-      backgroundColor: Colors.white,
-      leading: settingsButton(),
-      actions: [profileImage()],
-
-    );
-  }
 }
 

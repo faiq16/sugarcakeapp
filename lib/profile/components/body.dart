@@ -8,7 +8,7 @@ class Body extends StatelessWidget {
     return Column(
       children: [
         ProfilePic(),
-        SizedBox(height: 20),
+        SizedBox(height: 30),
         ProfileMenu(
           icon: "assets/icon/User Icon.svg",
           text: "My Account",

@@ -23,7 +23,7 @@ class TitleSearchBarAndCategories extends StatelessWidget {
             ),
           ),
           Text(
-            "burger for you 🍔",
+            "Cake for you 🍰",
             style: Theme.of(context).textTheme.headlineSmall!.copyWith(
               color: Colors.black,
               fontSize: 30,
@@ -33,7 +33,7 @@ class TitleSearchBarAndCategories extends StatelessWidget {
           const SizedBox(height: kDefaultPadding * 2),
           TextField(
             decoration: InputDecoration(
-              hintText: "Find your burger",
+              hintText: "Find your cake",
               hintStyle: const TextStyle(
                 color: Colors.grey,
                 fontSize: 16,
