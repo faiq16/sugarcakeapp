@@ -62,7 +62,6 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
     totalPay = cart.fold(0, (previousValue, element) {
       return previousValue + element[0].price!.toInt() * element.length;
     });
-    super.initState();
   }
 
   Widget cakeListTile(List<List<Cake>> cart, int index, Size size) {
@@ -216,35 +215,32 @@ class _NotEmptyCartState extends State<NotEmptyCart> {
       ),
     );
   }
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SafeArea(
-      child: Stack(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-            child: Column(
-              children: [
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: cart.length,
-                    itemBuilder: (context, index) {
-                      return cakeListTile(cart, index, size);
-                    },
-                  ),
-                ),
-                const SizedBox(height: 10),
-                totalToPayRow(),
-                const SizedBox(height: 10),
-                elevatedCheckoutButton(size),
-                const SizedBox(height: 10),
-              ],
-            ),
+      child: SafeArea(
+  child: Padding(
+    padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+    child: Column(
+      children: [
+        Expanded(
+          child: ListView.builder(
+            itemCount: cart.length,
+            itemBuilder: (context, index) {
+              return cakeListTile(cart, index, size);
+            },
           ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 10),
+        totalToPayRow(),
+        const SizedBox(height: 10),
+        elevatedCheckoutButton(size),
+        const SizedBox(height: 10),
+      ],
+    ),
+  ),
+),
     );
   }
 }

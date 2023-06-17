@@ -1,7 +1,6 @@
 import 'package:sugarcakeapp/home/components/popular_cake.dart';
 import 'package:sugarcakeapp/home/components/title_search_bar_and_categories.dart';
 import 'package:flutter/material.dart';
-
 import '../../constants.dart';
 
 class Body extends StatelessWidget {
