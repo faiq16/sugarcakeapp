@@ -42,9 +42,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
                 HexColor("#fff").withOpacity(0.2), BlendMode.dstATop),
-            image: const NetworkImage(
-              'https://mir-s3-cdn-cf.behance.net/project_modules/fs/01b4bd84253993.5d56acc35e143.jpg',
-            ),
+            image: AssetImage('assets/images/bglogin.jpg'),
           ),
         ),
         child: Center(
@@ -66,8 +64,8 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                       children: [
                         FadeAnimation(
                           delay: 0.8,
-                          child: Image.network(
-                            "https://cdni.iconscout.com/illustration/premium/thumb/job-starting-date-2537382-2146478.png",
+                          child: Image.asset(
+                            'assets/images/login1.png',
                             width: 100,
                             height: 100,
                           ),
