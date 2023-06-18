@@ -10,23 +10,27 @@ class Address extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding,
-          vertical: kDefaultPadding / 2),
+      padding: EdgeInsets.symmetric(
+        horizontal: kDefaultPadding,
+        vertical: kDefaultPadding / 2,
+      ),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text("Address",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.normal,
-                  )),
+              Text(
+                "Address",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
               GestureDetector(
                 onTap: () {},
-                child: const Text(
+                child: Text(
                   "Change",
                   style: TextStyle(
                     color: Colors.orangeAccent,
@@ -36,19 +40,20 @@ class Address extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: kDefaultPadding / 2),
+          SizedBox(height: kDefaultPadding / 2),
           Container(
             width: size.width * 0.85,
             height: size.height * 0.1,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 10,
-                    spreadRadius: 3,
-                    offset: Offset(5, 10)),
+                  color: Colors.black12,
+                  blurRadius: 10,
+                  spreadRadius: 3,
+                  offset: const Offset(5, 10),
+                ),
               ],
             ),
             child: Row(
@@ -58,22 +63,19 @@ class Address extends StatelessWidget {
                 Container(
                   width: size.width * 0.20,
                   height: size.height * 0.085,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                      ),
-                  image: DecorationImage(
-                    image: AssetImage('assets/images/maps.png'), // Ubah path relatif sesuai dengan nama file gambar yang diinginkan
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Image.asset(
+                    'assets/images/maps.png', // Ubah path relatif sesuai dengan nama file gambar yang diinginkan
                     fit: BoxFit.fitHeight,
                   ),
-                  ),
-),
-
+                ),
                 SizedBox(
                   width: size.width * 0.55,
                   height: size.height * 0.1,
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -99,7 +101,7 @@ class Address extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
