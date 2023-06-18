@@ -14,14 +14,7 @@ class MakePayment extends StatelessWidget {
         borderRadius: const BorderRadius.all(
           Radius.circular(15),
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[300]!,
-            blurRadius: 10,
-            spreadRadius: 1,
-            offset: const Offset(0, -10),
-          ),
-        ],
+        
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

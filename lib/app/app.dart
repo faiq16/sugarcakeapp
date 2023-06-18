@@ -11,22 +11,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  bool _iconBool = false;
-  IconData _iconLight = Icons.wb_sunny;
-  IconData _iconDark = Icons.nights_stay;
-
-  ThemeData _lightTheme = ThemeData(
-    primarySwatch: Colors.blue,
-    brightness: Brightness.light,
-    buttonTheme: const ButtonThemeData(
-      buttonColor: Colors.blue,
-    ),
-  );
-
-  ThemeData _darkTheme = ThemeData(
-    primarySwatch: Colors.red,
-    brightness: Brightness.dark,
-  );
+  bool _isDarkMode = false;
 
   int _currentIndex = 0;
 
@@ -58,19 +43,21 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "cake",
-      theme: _iconBool ? _darkTheme : _lightTheme,
+      title: "Sugar cake",
+      theme: _isDarkMode ? ThemeData.dark() : ThemeData.light(),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Dark & Light Theme"),
+          title: Text('SUGAR CAKE'),
           actions: [
             IconButton(
               onPressed: () {
                 setState(() {
-                  _iconBool = !_iconBool;
+                  _isDarkMode = !_isDarkMode;
                 });
               },
-              icon: Icon(_iconBool ? _iconDark : _iconLight),
+              icon: Icon(
+                _isDarkMode ? Icons.brightness_7 : Icons.brightness_4,
+              ),
             ),
           ],
         ),
@@ -89,7 +76,7 @@ class _AppState extends State<App> {
           currentIndex: _currentIndex,
           selectedIconTheme: IconThemeData(
             size: 30,
-            color: Colors.grey[800],
+            color: Colors.black,
           ),
           unselectedIconTheme: const IconThemeData(
             size: 20,
