@@ -1,13 +1,25 @@
-
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
 import '../../models/cake.dart';
 import '../../responsive.dart';
 import 'cake_card.dart';
+import 'dart:convert' as convert;
+import 'package:http/http.dart' as http;
 
 class PopularCake extends StatelessWidget {
   const PopularCake({Key? key}) : super(key: key);
+
+  Future<List<dynamic>> getData() async {
+    // This example uses the Google Books API to search for books about http.
+    // https://developers.google.com/books/docs/overview
+    var url = Uri.http('localhost', '/flutterapi/crudflutter/read.php');
+
+    // Await the http get response, then decode the json-formatted response.
+    var response = await http.get(url);
+    var jsonResponse = convert.jsonDecode(response.body) as List<dynamic>;
+    return jsonResponse;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,18 +55,28 @@ class PopularCake extends StatelessWidget {
             ),
             desktop: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                children: cakes
-                    .map(
-                      (cake) => Padding(
-                        padding: const EdgeInsets.all(kDefaultPadding),
-                        child: CakeCard(
-                          cake: cake,
-                        ),
-                      ),
-                    )
-                    .toList(),
-              ),
+              child: FutureBuilder<Object>(
+                  future: getData(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done &&
+                        snapshot.hasData) {
+                      List<dynamic> data = snapshot.data as List<dynamic>;
+                      return Row(
+                        children: data
+                            .map(
+                              (cake) => Padding(
+                                padding: const EdgeInsets.all(kDefaultPadding),
+                                child: CakeCard(
+                                  cake: cake,
+                                ),
+                              ),
+                            )
+                            .toList(),
+                      );
+                    }
+
+                    return Text("loading...");
+                  }),
             ),
           ),
         ),

@@ -6,7 +6,7 @@ import '../../details/screen/cake_details.dart';
 
 class CakeCard extends StatelessWidget {
   const CakeCard({Key? key, required this.cake}) : super(key: key);
-  final Cake cake;
+  final dynamic cake;
   @override
   Widget build(BuildContext context) {
     Widget like() => Positioned(
@@ -39,8 +39,8 @@ class CakeCard extends StatelessWidget {
               color: Colors.yellow,
               size: 20,
             ),
-             Text(
-              " ${cake.rating} ",
+            Text(
+              " bintang ",
               style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 15,
@@ -52,8 +52,8 @@ class CakeCard extends StatelessWidget {
               height: 15,
               color: Colors.grey,
             ),
-             Text(
-              " ${cake.time} min",
+            Text(
+              " 1 min",
               style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 15,
@@ -65,14 +65,14 @@ class CakeCard extends StatelessWidget {
     Widget price() => Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
-          children:  [
-            const  Icon(
+          children: [
+            const Icon(
               Icons.attach_money,
               color: Colors.yellow,
               size: 15,
             ),
             Text(
-              "${cake.price}",
+              cake["harga"],
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 15,
@@ -81,28 +81,27 @@ class CakeCard extends StatelessWidget {
             ),
           ],
         );
-    Widget cakeImage() =>  Hero(
+    Widget cakeImage() => Hero(
         tag: cake,
         child: Image(
-          image: NetworkImage(
-              "${cake.image}"),
+          image: NetworkImage("http://localhost/uploads/1.jpg"),
           width: 120,
           height: 100,
         ));
     Widget burgerTitle() => SizedBox(
-      width: 120,
-      child: Text(
-        "${cake.name}",
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          overflow: TextOverflow.ellipsis,
-        ),
-        maxLines: 2,
-        textAlign: TextAlign.center,
-      ),
-    );
+          width: 120,
+          child: Text(
+            cake["nama_kue"],
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              overflow: TextOverflow.ellipsis,
+            ),
+            maxLines: 2,
+            textAlign: TextAlign.center,
+          ),
+        );
 
     return Stack(
       children: [
@@ -125,7 +124,9 @@ class CakeCard extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>  CakeDetailsScreen(cake: cake,),
+                  builder: (context) => CakeDetailsScreen(
+                    cake: cake,
+                  ),
                 ),
               );
             },
