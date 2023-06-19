@@ -1,67 +1,40 @@
-import 'package:sugarcakeapp/models/cake.dart';
 import 'package:flutter/material.dart';
-
-import '../../constants.dart';
-import '../../details/screen/cake_details.dart';
+import 'package:sugarcakeapp/constants.dart';
+import 'package:sugarcakeapp/details/screen/cake_details.dart';
 
 class CakeCard extends StatelessWidget {
-  const CakeCard({Key? key, required this.cake}) : super(key: key);
   final dynamic cake;
+  final int index;
+
+  const CakeCard({Key? key, required this.cake, required this.index}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    List<String> imageUrls = List.generate(10, (index) => "http://localhost/uploads/${index + 1}.jpg");
+
     Widget like() => Positioned(
-        top: 10,
-        right: 30,
-        child: Container(
-          width: 30,
-          height: 30,
-          decoration: BoxDecoration(
-            color: Colors.red[100],
-            borderRadius: const BorderRadius.all(
-              Radius.circular(25),
-            ),
-          ),
-          child: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.favorite,
-              color: Colors.red,
-              size: 15,
-            ),
-          ),
-        ));
-    Widget starAndTime() => Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.star,
-              color: Colors.yellow,
-              size: 20,
-            ),
-            Text(
-              " bintang ",
-              style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 15,
-                fontWeight: FontWeight.normal,
+          top: 10,
+          right: 30,
+          child: Container(
+            width: 30,
+            height: 30,
+            decoration: BoxDecoration(
+              color: Colors.red[100],
+              borderRadius: const BorderRadius.all(
+                Radius.circular(25),
               ),
             ),
-            Container(
-              width: 2,
-              height: 15,
-              color: Colors.grey,
-            ),
-            Text(
-              " 1 min",
-              style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 15,
-                fontWeight: FontWeight.normal,
+            child: IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.favorite,
+                color: Colors.red,
+                size: 15,
               ),
             ),
-          ],
+          ),
         );
+
     Widget price() => Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -81,14 +54,17 @@ class CakeCard extends StatelessWidget {
             ),
           ],
         );
+
     Widget cakeImage() => Hero(
-        tag: cake,
-        child: Image(
-          image: NetworkImage("http://localhost/uploads/1.jpg"),
-          width: 120,
-          height: 100,
-        ));
-    Widget burgerTitle() => SizedBox(
+          tag: cake,
+          child: Image.network(
+            imageUrls[index],
+            width: 120,
+            height: 100,
+          ),
+        );
+
+    Widget cakeTitle() => SizedBox(
           width: 120,
           child: Text(
             cake["nama_kue"],
@@ -135,8 +111,7 @@ class CakeCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 cakeImage(),
-                burgerTitle(),
-                starAndTime(),
+                cakeTitle(),
                 price(),
               ],
             ),

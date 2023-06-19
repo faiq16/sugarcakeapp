@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
-import '../../models/cake.dart';
 import '../../responsive.dart';
 import 'cake_card.dart';
 import 'dart:convert' as convert;
@@ -11,11 +10,7 @@ class PopularCake extends StatelessWidget {
   const PopularCake({Key? key}) : super(key: key);
 
   Future<List<dynamic>> getData() async {
-    // This example uses the Google Books API to search for books about http.
-    // https://developers.google.com/books/docs/overview
-    var url = Uri.http('localhost', '/flutterapi/crudflutter/read.php');
-
-    // Await the http get response, then decode the json-formatted response.
+    var url = Uri.http('localhost', '/flutterapi/read.php');
     var response = await http.get(url);
     var jsonResponse = convert.jsonDecode(response.body) as List<dynamic>;
     return jsonResponse;
@@ -29,54 +24,95 @@ class PopularCake extends StatelessWidget {
         Text(
           "Most popular",
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                fontWeight: FontWeight.normal,
-              ),
+            fontWeight: FontWeight.normal,
+          ),
         ),
         SizedBox(
           height: 280,
           child: Responsive(
-            mobile: ListView.builder(
-              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-              itemCount: cakes.length,
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              itemBuilder: (context, index) => CakeCard(
-                cake: cakes[index],
-              ),
+            mobile: FutureBuilder<List<dynamic>>(
+              future: getData(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (snapshot.hasError) {
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                } else {
+                  List<dynamic> cakes = snapshot.data ?? [];
+                  return ListView.builder(
+                    padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                    itemCount: cakes.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) => CakeCard(
+                      cake: cakes[index],
+                      index: index, // Pass the index to CakeCard
+                    ),
+                  );
+                }
+              },
             ),
-            tablet: ListView.builder(
-              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-              itemCount: cakes.length,
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              itemBuilder: (context, index) => CakeCard(
-                cake: cakes[index],
-              ),
+            tablet: FutureBuilder<List<dynamic>>(
+              future: getData(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (snapshot.hasError) {
+                  return Center(
+                    child: Text('Error: ${snapshot.error}'),
+                  );
+                } else {
+                  List<dynamic> cakes = snapshot.data ?? [];
+                  return ListView.builder(
+                    padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                    itemCount: cakes.length,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (context, index) => CakeCard(
+                      cake: cakes[index],
+                      index: index, // Pass the index to CakeCard
+                    ),
+                  );
+                }
+              },
             ),
             desktop: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: FutureBuilder<Object>(
-                  future: getData(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.done &&
-                        snapshot.hasData) {
-                      List<dynamic> data = snapshot.data as List<dynamic>;
-                      return Row(
-                        children: data
-                            .map(
-                              (cake) => Padding(
-                                padding: const EdgeInsets.all(kDefaultPadding),
-                                child: CakeCard(
-                                  cake: cake,
-                                ),
+              child: FutureBuilder<List<dynamic>>(
+                future: getData(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (snapshot.hasError) {
+                    return Center(
+                      child: Text('Error: ${snapshot.error}'),
+                    );
+                  } else {
+                    List<dynamic> cakes = snapshot.data ?? [];
+                    return Row(
+                      children: cakes
+                          .map(
+                            (cake) => Padding(
+                              padding: const EdgeInsets.all(kDefaultPadding),
+                              child: CakeCard(
+                                cake: cake,
+                                index: cakes.indexOf(cake), // Pass the index to CakeCard
                               ),
-                            )
-                            .toList(),
-                      );
-                    }
-
-                    return Text("loading...");
-                  }),
+                            ),
+                          )
+                          .toList(),
+                    );
+                  }
+                },
+              ),
             ),
           ),
         ),

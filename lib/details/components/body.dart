@@ -20,7 +20,7 @@ class Body extends StatelessWidget {
             children:  [
               ImageAndRating(cake: cake,),
                TitleAndAmountController(title: "${cake.name}" ),
-                Description(description: "${cake.description}" ),
+                Description(description: "${cake.description}", cakeId: '', ),
             ],
           ),
         ),
