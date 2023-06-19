@@ -1,6 +1,4 @@
 import 'package:sugarcakeapp/constants.dart';
-// ignore: unused_import
-import 'package:sugarcakeapp/responsive.dart';
 import 'package:sugarcakeapp/auth/login/login.dart';
 import 'package:flutter/material.dart';
 
